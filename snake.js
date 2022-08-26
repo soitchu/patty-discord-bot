@@ -1,7 +1,6 @@
 class snake {
     constructor(channelID, authorID, timeoutInterval, snakeData) {
         this.channelID = channelID;
-        this.guildID = guildID;
         this.authorID = authorID;
         this.timeoutInterval = timeoutInterval;
         this.channelData = snakeData[channelID];

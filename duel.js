@@ -37,7 +37,7 @@ class duel {
             "stepCounter": 1,
             "immunity": 0,
             "immunityCounter": 1,
-            "stop": 1,
+            "stop": 0,
             "stopCounter": 1,
             "total": 3,
         };

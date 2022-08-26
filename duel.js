@@ -101,7 +101,7 @@ class duel {
                     currenPlayer.total += -1;
                     currenPlayer.step = 2;
                     currenPlayer.stepCounter = 1;
-                    this.notification += currenPlayer.name + " used double steps apple.\n";
+                    this.notification += currenPlayer.name + " used double-steps apple.\n";
                 } else if (reaction.emoji.name === "🍏") {
                     currenPlayer.total += -1;
                     currenPlayer.immunity = 1;
@@ -223,7 +223,7 @@ class duel {
             var player1_check = 0;
 
 
-            let powerUpKeys = [["immunity", "immunityCounter" ,1],["step", "stepCounter", 2],["stop", "stopCounter", 1]];
+            let powerUpKeys = [["immunity", "immunityCounter", 1, 0],["step","stepCounter", 2, 1],["stop", "stopCounter", 1, 0]];
            
             for(let j = 0; j <= 1; j++){
                 let currenPlayer = player1;
@@ -236,8 +236,7 @@ class duel {
                     if (currenPlayer[thisPowerup[0]] === thisPowerup[2]) {
                         currenPlayer[thisPowerup[1]] += 1;
                         if (currenPlayer[thisPowerup[1]] == 6) {
-                            currenPlayer[thisPowerup[0]] = 0;
-                            currenPlayer[thisPowerup[2]]= 1;
+                            currenPlayer[thisPowerup[0]] = thisPowerup[3];
                         }
                     }
                 }
@@ -265,12 +264,12 @@ class duel {
             }
 
             if (player2.immunity === 0 && self.checkenemy(self.player2.position[0], self.player2.position[1]) === true) {
-                self.notification += self.player2.name + " died by colliding into the obstacles.\n";
+                self.notification += self.player2.name + " died by running into the enemy.\n";
                 self.end(self);
                 return;
             }
             else if (player1.immunity === 0 && self.checkenemy(self.player1.position[0], self.player1.position[1]) === true) {
-                self.notification += self.player1.name + " died by colliding into the obstacles.\n";
+                self.notification += self.player1.name + " died by running into the enemy.\n";
                 self.end(self);
                 return;
             }
